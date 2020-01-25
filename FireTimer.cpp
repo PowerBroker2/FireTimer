@@ -53,7 +53,7 @@ void FireTimer::update(ulong timeout)
 
 
 /*
- bool FireTimer::start()
+ void FireTimer::start()
 
  Description:
  ------------
@@ -79,7 +79,7 @@ void FireTimer::start()
 
 
 /*
- bool FireTimer::reset()
+ void FireTimer::reset()
 
  Description:
  ------------

@@ -22,6 +22,7 @@ public: // <<---------------------------------------//public
 
 	void begin(ulong timeout, bool micros=false);
 	void update(ulong timeout);
+	void start();
 	void reset();
 	bool fire();
 
