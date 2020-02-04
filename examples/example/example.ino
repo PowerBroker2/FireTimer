@@ -8,7 +8,7 @@ void setup()
   Serial.begin(115200);
 
   msTimer.begin(1000);
-  usTimer.begin(1000000, true);
+  usTimer.begin(1000000, MICRO_SECONDS);
 }
 
 void loop()
