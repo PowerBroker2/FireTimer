@@ -7,6 +7,8 @@
 typedef unsigned long ulong;
 
 const ulong UL_MAX = 4294967295;
+const bool MILLI_SECONDS = false;
+const bool MICRO_SECONDS = true;
 
 
 
