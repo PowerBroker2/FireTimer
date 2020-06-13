@@ -22,11 +22,11 @@ public: // <<---------------------------------------//public
 
 
 
-	void begin(ulong timeout, bool micros=false);
-	void update(ulong timeout);
+	void begin(const ulong &timeout, const bool &micros=false);
+	void update(const ulong &timeout);
 	void start();
 	void reset();
-	bool fire();
+	bool fire(const bool &_reset=true);
 
 
 

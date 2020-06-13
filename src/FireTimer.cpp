@@ -4,7 +4,7 @@
 
 
 /*
- void FireTimer::begin(ulong timeout, bool micros)
+ void FireTimer::begin(const ulong &timeout, const bool &micros)
 
  Description:
  ------------
@@ -12,14 +12,14 @@
 
  Inputs:
  -------
-  * uint8_t timeout- Timeout in ms (or us if micros flag is set)
-  * bool micros - Set timeout units to us
+  * const uint8_t &timeout- Timeout in ms (or us if micros flag is set)
+  * const bool &micros - Set timeout units to us
 
  Return:
  -------
   * void
 */
-void FireTimer::begin(ulong timeout, bool micros)
+void FireTimer::begin(const ulong &timeout, const bool &micros)
 {
 	us = micros;
 	update(timeout);
@@ -29,7 +29,7 @@ void FireTimer::begin(ulong timeout, bool micros)
 
 
 /*
- bool FireTimer::update(ulong timeout)
+ bool FireTimer::update(const ulong &timeout)
 
  Description:
  ------------
@@ -37,13 +37,13 @@ void FireTimer::begin(ulong timeout, bool micros)
 
  Inputs:
  -------
-  * ulong timeout - Number of ms/us to fire after
+  * const ulong &timeout - Number of ms/us to fire after
 
  Return:
  -------
   * void
 */
-void FireTimer::update(ulong timeout)
+void FireTimer::update(const ulong &timeout)
 {
 	period = timeout;
 	start();
@@ -102,7 +102,7 @@ void FireTimer::reset()
 
 
 /*
- bool FireTimer::fire()
+ bool FireTimer::fire(const bool &_reset)
 
  Description:
  ------------
@@ -111,13 +111,14 @@ void FireTimer::reset()
 
  Inputs:
  -------
-  * void
+  * const bool &_reset - Allows user to specify if
+  the timer should reset if enough time has elapsed
 
  Return:
  -------
   * bool - Whether or not enough time has elapsed
 */
-bool FireTimer::fire()
+bool FireTimer::fire(const bool &_reset)
 {
 	ulong currentTime;
 
@@ -134,7 +135,7 @@ bool FireTimer::fire()
 		timeDiff = currentTime - timeBench;
 
 	// Determine if enough time has passed
-	if (timeDiff >= period)
+	if (_reset && (timeDiff >= period))
 	{
 		reset();
 		return true;
