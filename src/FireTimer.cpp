@@ -135,9 +135,10 @@ bool FireTimer::fire(const bool &_reset)
 		timeDiff = currentTime - timeBench;
 
 	// Determine if enough time has passed
-	if (_reset && (timeDiff >= period))
+	if (timeDiff >= period)
 	{
-		reset();
+		if (_reset)
+			reset();
 		return true;
 	}
 
